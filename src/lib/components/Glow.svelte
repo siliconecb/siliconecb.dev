@@ -3,7 +3,7 @@
 	import { gsap } from 'gsap';
 	
 	let c = '#0041ef';
-	let s = -1; // umm fix probably?
+	let s = 0; // umm fix probably?
 	let ms = 800;
 	let opacityig = 0.5;
 	let speed = 600;

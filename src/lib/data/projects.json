@@ -1,0 +1,32 @@
+{
+	"projects": [
+		{
+			"name": "siliconecb.dev",
+			"desc": "my portfolio/showcase website",
+			"img": "/images/ghbanner.png",
+			"link": "/",
+			"external": false
+		},
+		{
+			"name": "wasteof.me",
+			"desc": "free and memorable shortlinks for wasteof.money",
+			"img": "https://github.com/yippymishy/wasteof.me/raw/main/ghbanner.png",
+			"link": "https://github.com/yippymishy/wasteof.me",
+			"external": true
+		},
+		{
+			"name": "wasteof.cash",
+			"desc": "a supercharged alternative client for wasteof.money",
+			"img": "https://github.com/siliconecb/wasteof.cash/raw/v0/static/brand/banner.png",
+			"link": "https://github.com/siliconecb/wasteof.cash",
+			"external": true
+		},
+		{
+			"name": "scratch-ai",
+			"desc": "generate scratch code from a prompt using gemini-1.5-flash | a sparkshell™ experience",
+			"img": "/images/cat.png",
+			"link": "https://sparkshell.dev/projects/siliconecb/66dca9c9b6fdd7804d4df3dd",
+			"external": true
+		}
+	]
+}

@@ -10,7 +10,7 @@
 	
 	let timer;
 	let inactive = false;
-	const brb_time = 5000; // 5 seconds
+	const brb_time = 2000;
 
 	onMount(() => {
 		gsap.set([underl, projectsL, githubL, wasteofL, mailtoouhh], { opacity: 0 });
