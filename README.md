@@ -1,6 +1,6 @@
 <img src="static/images/ghbanner.png" alt="cool banner" width="400">
 
-very cool portfolio website
+very cool website
 <br>
 https://siliconecb.dev
 ```
