@@ -5,7 +5,7 @@
     import { page } from "$app/stores";
 
 	const woah = Array.from({ length: 150 }, () => ({
-		src: '/images/logo-darkmode.svg',
+		src: '/images/logo-transparent.svg',
 		width: 62.5,
 		height: 62.5
 	}));
@@ -14,7 +14,7 @@
 	let linkElement;
 	let homeL;
 
-	$: textCollisionElements = [textElement, linkElement].filter(Boolean);
+	$: text = [textElement, linkElement].filter(Boolean);
 
 	onMount(() => {
 		gsap.set(homeL, { opacity: 0 });
@@ -57,7 +57,7 @@
 		trigger="auto"
 		gravity={1}
 		imageSize={60}
-		{textCollisionElements}
+		textCollisionElements={text}
 		wireframes={false}
 	>
 		<div class="flex h-full -translate-y-[6%] flex-col items-center justify-center">
