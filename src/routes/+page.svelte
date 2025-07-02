@@ -60,11 +60,11 @@
 	bind:this={awesomeGlow}
 />
 
-<div class="flex flex-col items-center justify-center min-h-screen -translate-y-[6%] relative z-10" role="main" on:contextmenu|preventDefault>
+<div class="flex flex-col items-center justify-center min-h-screen -translate-y-[6%] relative z-10 " role="main" on:contextmenu|preventDefault>
 	<img
 		src="/images/logo-darkmode.png"
 		alt="me"
-		class="w-16 ml-0 -mb-1.5 select-none relative z-20"
+		class="w-16 ml-0 -mb-1.5 select-none relative z-20 cursor-grab"
 		on:contextmenu|preventDefault
 		draggable="false"
 		on:mouseenter={() => awesomeGlow?.oohcandy()}
