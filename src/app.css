@@ -1,1 +1,15 @@
 @import 'tailwindcss';
+
+@font-face {
+	font-family: 'SF Pro';
+	src: url('/fonts/SF-Pro-Rounded-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Consolas';
+	src: url('/fonts/consolas.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
