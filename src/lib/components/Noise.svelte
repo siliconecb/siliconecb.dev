@@ -7,7 +7,7 @@
 	export let refInterval = 8;
 	export let alpha = 15;
 
-	let o = 0.8;
+	let o = 0.95;
 	let grainRef;
 
 	onMount(() => {
