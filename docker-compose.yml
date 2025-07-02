@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      - HOST=${HOST:-0.0.0.0}
+      - PORT=${PORT:-5173}
+      - NODE_ENV=production
+    restart: unless-stopped
