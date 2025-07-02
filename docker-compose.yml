@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   portfolio:
+    container_name: siliconecb-portfolio
     build:
       context: .
       dockerfile: Dockerfile
@@ -12,3 +13,9 @@ services:
       - PORT=${PORT:-5173}
       - NODE_ENV=production
     restart: unless-stopped
+    network_mode: bridge
+
+networks:
+  default:
+    external: true
+    name: bridge
