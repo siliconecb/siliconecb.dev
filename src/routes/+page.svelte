@@ -7,10 +7,45 @@
 	let awesomeGlow;
 	let umm = "email";
 	let alreadycopied = false;
+	
+	let timer;
+	let inactive = false;
+	const brb_time = 5000; // 5 seconds
 
 	onMount(() => {
 		gsap.set([underl, projectsL, githubL, wasteofL, mailtoouhh], { opacity: 0 });
+		activetracker();
 	});
+	
+	function activetracker() {
+		function reset() {
+			if (timer) {
+				clearTimeout(timer);
+			}
+			
+			if (inactive) {
+				inactive = false;
+				awesomeGlow?.aww();
+			}
+			
+			timer = setTimeout(() => {
+				if (!inactive) {
+					inactive = true;
+					awesomeGlow?.oohcandy();
+				}
+			}, brb_time);
+		}
+		
+		document.addEventListener('mousemove', reset);
+		reset();
+		
+		return () => {
+			document.removeEventListener('mousemove', reset);
+			if (timer) {
+				clearTimeout(timer);
+			}
+		};
+	}
 
 	function msEnter(element) {
 		gsap.to(element, {
