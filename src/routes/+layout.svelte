@@ -6,6 +6,7 @@
 	import { page } from "$app/stores";
 	import Cursor from '$lib/components/Cursor.svelte';
 	import Bg from '$lib/components/Bg.svelte';
+	import { ScrollWrapper } from '@shentohendriks/svelte-smoothscroll';
 	
 	let { children } = $props();
 	let container = $state();
@@ -54,11 +55,13 @@
 		{@render children()}
 	</div>
 {:else}
-	<div class="min-h-screen relative">
-		<Bg {cX} {cY} />
-		<div class="absolute z-[9999] mix-blend-exclusion"><Cursor on:cursorMove={bgmask} /></div>
-		<div bind:this={container}>
-			{@render children()}
+	<ScrollWrapper settings={{smoothWheel: true}}>
+		<div class="min-h-screen relative">
+			<Bg {cX} {cY} />
+			<div class="absolute z-[9999] mix-blend-exclusion"><Cursor on:cursorMove={bgmask} /></div>
+			<div bind:this={container}>
+				{@render children()}
+			</div>
 		</div>
-	</div>
+	</ScrollWrapper>
 {/if}

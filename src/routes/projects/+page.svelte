@@ -31,11 +31,11 @@
 	<meta name="title" content="projects - siliconecb" />
 	<meta
 		name="og:description"
-		content="hi there! click here to check out some of my projects, no pressure ofc."
+		content="I'm Jonathan, a programmer mainly focused on robotics (FRC) as well as creating well-formed websites and tools."
 	/>
 	<meta
 		name="description"
-		content="hi there! click here to check out some of my projects, no pressure ofc."
+		content="I'm Jonathan, a programmer mainly focused on robotics (FRC) as well as creating well-formed websites and tools."
 	/>
 </sveltekit:head>
 
