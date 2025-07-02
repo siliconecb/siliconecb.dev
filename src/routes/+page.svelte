@@ -71,7 +71,7 @@
 		on:mouseleave={() => awesomeGlow?.aww()}
 	/>
 	<p class="text-xs mt-2 text-center font-medium text-white/80 leading-[19px] max-w-[480px] selection:bg-[#1d2633]" style="font-family: 'Consolas', sans-serif; font-size: 13px;">
-		I'm Jonathan, a programmer mainly focused on robotics (<a href="https://www.firstinspires.org/robotics/frc" class="relative no-underline text-inherit font-black" target="_blank" rel="noopener noreferrer" on:mouseenter={() => msEnter(underl)} on:mouseleave={() => msLeave(underl)} on:contextmenu|stopPropagation>FRC<span bind:this={underl} class="absolute w-full h-px -bottom-px left-0 bg-white opacity-0"></span></a>) as well as creating well-formed websites and tools (like this one!).
+		I'm Jonathan, a programmer mainly focused on robotics (<a href="https://www.firstinspires.org/robotics/frc" class="relative no-underline text-inherit font-black" target="_blank" rel="noopener noreferrer" on:mouseenter={() => msEnter(underl)} on:mouseleave={() => msLeave(underl)} on:contextmenu|stopPropagation>FRC<span bind:this={underl} class="absolute w-full h-px -bottom-px left-0 bg-white opacity-0"></span></a>) as well as creating well-formed tools and websites (like this one!).
 	</p>
 	<p class="text-xs mt-5 text-center font-[1000] text-white/85 leading-[19px] max-w-[470px] selection:bg-[#1d2633]" style="font-family: 'Consolas', sans-serif; font-size: 13px;">
 		A few things you might find cool:
