@@ -117,19 +117,22 @@
 				bind:this={preview}
 				class="relative -mb-4 w-full overflow-hidden rounded-lg border border-white/10 bg-gray-800/20 backdrop-blur-sm"
 				style="aspect-ratio: 16/9;"
+				on:contextmenu|preventDefault
 			>
 				<img
 					src={projectsData.projects[hover].img}
 					alt={projectsData.projects[hover].title}
 					class="absolute inset-0 h-full w-full object-cover"
 					style="object-position: center;"
+					on:contextmenu|preventDefault
+					draggable="false"
 				/>
 			</div>
 			<div
 				class="absolute right-2 -bottom-3 left-2 rounded-lg border border-white/10 bg-gray-900/50 px-3 py-2 backdrop-blur-sm"
 			>
 				<p
-					class="text-xs leading-relaxed text-white/70"
+					class="text-xs leading-relaxed text-white/70 selection:bg-[#1d2633]"
 					style="font-family: 'Consolas', sans-serif;"
 				>
 					{projectsData.projects[hover].desc}
@@ -145,8 +148,9 @@
 					<div class="absolute top-[3px] -left-16">
 						<a
 							href="/"
-							class="relative inline-flex items-center font-medium text-white/80 no-underline transition-all duration-300 hover:text-white/100 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.6)]"
+							class="relative inline-flex items-center font-medium text-white/80 no-underline transition-all duration-300 hover:text-white/100 hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.6)] selection:bg-[#1d2633]"
 							aria-label="return home"
+							on:contextmenu|preventDefault
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -167,7 +171,7 @@
 					href={project.link}
 					target={project.external ? '_blank' : '_self'}
 					rel={project.external ? 'noopener noreferrer' : ''}
-					class="relative inline-flex items-center font-medium text-white/80 no-underline transition-colors duration-300 hover:text-white/100"
+					class="relative inline-flex items-center font-medium text-white/80 no-underline transition-colors duration-300 hover:text-white/100 selection:bg-[#1d2633]"
 					style="font-family: 'Consolas', sans-serif; font-size: 13px;"
 					on:mouseenter={() => projectEnter(index)}
 					on:mouseleave={() => projectLeave(index)}
