@@ -6,8 +6,9 @@
 	let links = [];
 	let iconz = [];
 	let c_index = 0;
+	let hover = 0;
 	let preview;
-	let is_safe = false;
+	let indexid = 0;
 
 	onMount(() => {
 		gsap.set([links, iconz], { opacity: 0 });
@@ -23,44 +24,54 @@
 			last_img.remove();
 			preview.appendChild(img);
 		}
+
+		setInterval(() => {
+			if (c_index !== hover) {
+				c_index = hover;
+			}
+		}, 100);
 	});
 
 	function projectEnter(index) {
+		hover = index;
+		
+		if (index !== c_index) {
+			c_index = index;
+		}
+
 		gsap.to([links[index], iconz[index]], {
 			opacity: 1,
 			duration: 0.2,
 			ease: 'power2.out'
 		});
 
-		if (index !== c_index && !is_safe) {
-			is_safe = true;
-			c_index = index;
-			const project = projectsData.projects[index];
+		const current = ++indexid;
+		const project = projectsData.projects[index];
 
-			const img = document.createElement('img');
-			img.src = project.img;
-			img.alt = project.title;
-			img.className = 'absolute inset-0 w-full h-full object-cover';
-			img.style.objectPosition = 'center';
-			img.style.opacity = '0';
-			img.style.zIndex = '10';
+		const img = document.createElement('img');
+		img.src = project.img;
+		img.alt = project.title;
+		img.className = 'absolute inset-0 w-full h-full object-cover';
+		img.style.objectPosition = 'center';
+		img.style.opacity = '0';
+		img.style.zIndex = '10';
 
-			preview.appendChild(img);
+		preview.appendChild(img);
 
-			gsap.to(img, {
-				opacity: 1,
-				duration: 0.3,
-				ease: 'power2.out',
-				onComplete: () => {
+		gsap.to(img, {
+			opacity: 1,
+			duration: 0.3,
+			ease: 'power2.out',
+			onComplete: () => {
+				if (current === indexid) {
 					const images = preview.querySelectorAll('img');
 					images.forEach((img, i) => {
 						if (i < images.length - 1) img.remove();
 					});
 					img.style.zIndex = 'auto';
-					is_safe = false;
 				}
-			});
-		}
+			}
+		});
 	}
 
 	function projectLeave(index) {
@@ -108,8 +119,8 @@
 				style="aspect-ratio: 16/9;"
 			>
 				<img
-					src={projectsData.projects[c_index].img}
-					alt={projectsData.projects[c_index].title}
+					src={projectsData.projects[hover].img}
+					alt={projectsData.projects[hover].title}
 					class="absolute inset-0 h-full w-full object-cover"
 					style="object-position: center;"
 				/>
@@ -121,7 +132,7 @@
 					class="text-xs leading-relaxed text-white/70"
 					style="font-family: 'Consolas', sans-serif;"
 				>
-					{projectsData.projects[c_index].desc}
+					{projectsData.projects[hover].desc}
 				</p>
 			</div>
 		</div>
