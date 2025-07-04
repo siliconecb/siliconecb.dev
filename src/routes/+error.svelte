@@ -4,20 +4,36 @@
 	import FallingImages from '$lib/components/FallingImages.svelte';
     import { page } from "$app/stores";
 
-	const woah = Array.from({ length: 150 }, () => ({
+	let textElement;
+	let linkElement;
+	let homeL;
+	let isphone = false;
+
+	function mobile_check() {
+		isphone = window.innerWidth < 640 || window.innerHeight < 510;
+	}
+
+	$: woah = Array.from({ length: isphone ? 50 : 150 }, () => ({
 		src: '/images/logo-transparent.svg',
 		width: 62.5,
 		height: 62.5
 	}));
 
-	let textElement;
-	let linkElement;
-	let homeL;
-
-	$: text = [textElement, linkElement].filter(Boolean);
+	$: text = isphone ? [] : [textElement, linkElement].filter(Boolean);
 
 	onMount(() => {
 		gsap.set(homeL, { opacity: 0 });
+		mobile_check();
+
+		const resize_listener = () => {
+			mobile_check();
+		};
+
+		window.addEventListener('resize', resize_listener);
+		
+		return () => {
+			window.removeEventListener('resize', resize_listener);
+		};
 	});
 
 	function msEnter(element) {
