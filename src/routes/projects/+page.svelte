@@ -125,7 +125,7 @@
 			<div
 				bind:this={preview}
 				class="relative -mb-4 w-full overflow-hidden rounded-lg border border-white/10 bg-gray-800/20 backdrop-blur-sm"
-				style="aspect-ratio: 16/9;"
+				style="aspect-ratio: 16/9; user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;"
 				on:contextmenu|preventDefault
 				role="img"
 				aria-label={projectsData.projects[hover].title}
@@ -134,7 +134,7 @@
 					src={projectsData.projects[hover].img}
 					alt={projectsData.projects[hover].title}
 					class="absolute inset-0 h-full w-full object-cover"
-					style="object-position: center;"
+					style="object-position: center; user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; pointer-events: none;"
 					on:contextmenu|preventDefault
 					draggable="false"
 				/>
