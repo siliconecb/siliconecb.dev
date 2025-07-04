@@ -9,4 +9,4 @@ node server.js
 ```
 ---
 >[!NOTE]
-> compose example in this project is untested, i use a different version on my server, wouldn't recommend
+> compose file in this project is untested, i use a different version on my server, wouldn't recommend
