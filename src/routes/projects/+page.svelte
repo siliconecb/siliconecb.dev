@@ -9,8 +9,14 @@
 	let preview;
 	let m_index = 0;
 	let indexid = 0;
+	let isphone = false;
+
+	function mobile_height() {
+		isphone = window.innerWidth < 640 || window.innerHeight < 510;
+	}
 
 	onMount(() => {
+		mobile_height();
 		gsap.set([links, iconz], { opacity: 0 });
 
 		const last_img = preview.querySelector('img');
@@ -29,7 +35,10 @@
 
 		
 		const resize_listener = () => {
-			if (window.innerWidth >= 640) {
+			const wasphone = isphone;
+			mobile_height();
+			
+			if (wasphone && !isphone) {
 				links.forEach((link, index) => {
 					if (link && iconz[index]) {
 						gsap.set([link, iconz[index]], { opacity: 0 });
@@ -143,7 +152,7 @@
 		</div>
 	</div>
 
-	<div class="hidden sm:flex flex-col space-y-4">
+	<div class="flex flex-col space-y-4" class:hidden={isphone}>
 		{#each projectsData.projects as project, index}
 			<div class="flex items-center justify-center gap-2">
 				
@@ -234,7 +243,7 @@
 		{/each}
 	</div>
 	
-	<div class="flex sm:hidden flex-col space-y-4">
+	<div class="flex flex-col space-y-4" class:hidden={!isphone}>
 		<div class="flex items-center justify-center gap-2">
 			
 			<button

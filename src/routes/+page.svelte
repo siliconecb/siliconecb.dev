@@ -9,20 +9,51 @@
 	let alreadycopied = false;
 
 	let timer;
-	let phone;
+	let isphone;
 	let inactive = false;
 	const brb_time = 2000;
+	let cleanup_tracker;
+
+	function mobile_check() {
+		isphone = window.innerWidth < 640 || window.innerHeight < 510;
+	}
 
 	onMount(() => {
 		gsap.set([underl, projectsL, githubL, wasteofL, mailtoouhh], { opacity: 0 });
 
-		phone = window.innerWidth < 640;
+		mobile_check();
 
-		if (phone) {
+		if (isphone) {
 			awesomeGlow?.oohcandy();
 		} else {
-			activetracker();
+			cleanup_tracker = activetracker();
 		}
+
+		const resize_listener = () => {
+			const wasphone = isphone;
+			mobile_check();
+			
+			if (wasphone && !isphone) {
+				awesomeGlow?.aww();
+				cleanup_tracker = activetracker();
+			}
+			else if (!wasphone && isphone) {
+				if (cleanup_tracker) {
+					cleanup_tracker();
+					cleanup_tracker = null;
+				}
+				awesomeGlow?.oohcandy();
+			}
+		};
+
+		window.addEventListener('resize', resize_listener);
+		
+		return () => {
+			window.removeEventListener('resize', resize_listener);
+			if (cleanup_tracker) {
+				cleanup_tracker();
+			}
+		};
 	});
 
 	function activetracker() {
@@ -112,8 +143,8 @@
 		class="relative z-20 -mb-1.5 ml-0 w-16 cursor-grab select-none"
 		on:contextmenu|preventDefault
 		draggable="false"
-		on:mouseenter={() => !phone && awesomeGlow?.oohcandy()}
-		on:mouseleave={() => !phone && awesomeGlow?.aww()}
+		on:mouseenter={() => !isphone && awesomeGlow?.oohcandy()}
+		on:mouseleave={() => !isphone && awesomeGlow?.aww()}
 	/>
 	<p
 		class="mx-auto mt-2 w-full max-w-[480px] px-6 text-center text-xs leading-[19px] font-medium text-white/80 selection:bg-[#1d2633] sm:px-4"

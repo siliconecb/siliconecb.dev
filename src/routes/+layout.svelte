@@ -22,7 +22,7 @@
 	}
 
 	function isPhone() {
-		mobile = window.innerWidth < 640 || 'ontouchstart' in window;
+		mobile = window.innerWidth < 640 || window.innerHeight < 510 || 'ontouchstart' in window;
 	}
 
 	onMount(() => {
